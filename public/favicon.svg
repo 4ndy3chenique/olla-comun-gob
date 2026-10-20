@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Plataforma del Estado">
+  <rect width="64" height="64" rx="12" fill="#1F4D3F"/>
+  <path d="M32 10 18 16v11.5C18 37 24 44 32 46.5 40 44 46 37 46 27.5V16L32 10Z" fill="#EAF2EF"/>
+  <path d="M23 31h18a9 9 0 0 1-18 0Z" fill="#B5651D"/>
+  <path d="M20 27h24" fill="none" stroke="#153A2F" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M29 31c0 5 1.5 8 3 10" fill="none" stroke="#F7EADC" stroke-width="1.6" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: theme(fontFamily.sans);
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-bg text-ink antialiased;
+    min-height: 100vh;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
+  }
+
+  :focus-visible {
+    outline: 3px solid #356480;
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: #eaf2ef;
+    color: #153a2f;
+  }
+}
+
+@layer utilities {
+  .toque {
+    @apply min-h-11 min-w-11;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded px-4 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded px-4 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 bg-primary text-white hover:bg-primary-dark;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded px-4 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 border border-border bg-surface text-ink hover:border-primary/40 hover:bg-primary-light;
+  }
+
+  .btn-ghost {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded px-4 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 bg-transparent text-muted hover:bg-primary-light hover:text-primary-dark;
+  }
+
+  .btn-danger {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded px-4 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 bg-danger text-white hover:bg-[#8A3025];
+  }
+
+  .btn-accent {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded px-4 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 bg-accent text-white hover:bg-accent-dark;
+  }
+
+  .btn-icon {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded text-muted transition-colors hover:bg-primary-light hover:text-primary-dark disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .input-field,
+  .select-field,
+  .textarea-field {
+    @apply w-full rounded border border-border bg-surface px-3 text-base text-ink transition-colors placeholder:text-muted/80 focus:border-primary disabled:cursor-not-allowed disabled:bg-bg disabled:text-muted;
+  }
+
+  .input-field,
+  .select-field {
+    @apply h-11;
+  }
+
+  .textarea-field {
+    @apply min-h-28 py-3;
+  }
+
+  .label-field {
+    @apply mb-1.5 block text-sm font-medium text-ink;
+  }
+
+  .help-text {
+    @apply mt-1 text-xs text-muted;
+  }
+
+  .card {
+    @apply rounded-lg border border-border bg-surface shadow-card;
+  }
+
+  .card-pad {
+    @apply p-5 sm:p-6;
+  }
+
+  .card-header {
+    @apply flex flex-wrap items-start justify-between gap-3 border-b border-border px-5 py-4 sm:px-6;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 whitespace-nowrap rounded-sm border px-2 py-0.5 text-xs font-semibold;
+  }
+
+  .badge-neutral {
+    @apply border-border bg-bg text-muted;
+  }
+
+  .badge-pendiente {
+    @apply border-info/25 bg-info-light text-info;
+  }
+
+  .badge-en-evaluacion {
+    @apply border-accent/30 bg-accent-light text-accent-dark;
+  }
+
+  .badge-observada {
+    @apply border-accent/40 bg-accent-light text-accent-dark;
+  }
+
+  .badge-apta {
+    @apply border-success/25 bg-success-light text-success;
+  }
+
+  .badge-no-apta {
+    @apply border-danger/25 bg-danger-light text-danger;
+  }
+
+  .badge-activo {
+    @apply border-success/25 bg-success-light text-success;
+  }
+
+  .badge-suspendido {
+    @apply border-danger/25 bg-danger-light text-danger;
+  }
+
+  .badge-admin {
+    @apply border-primary/25 bg-primary-light text-primary-dark;
+  }
+
+  .badge-supervisor {
+    @apply border-info/25 bg-info-light text-info;
+  }
+
+  .badge-evaluador {
+    @apply border-accent/30 bg-accent-light text-accent-dark;
+  }
+
+  .table-base {
+    @apply w-full min-w-full text-left text-sm;
+  }
+
+  .table-base thead th {
+    @apply whitespace-nowrap border-b border-border bg-bg/70 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted;
+  }
+
+  .table-base tbody td {
+    @apply border-b border-border/80 px-4 py-3 align-middle;
+  }
+
+  .table-base tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .table-base tbody tr {
+    @apply transition-colors hover:bg-primary-light/40;
+  }
+
+  .tab {
+    @apply inline-flex min-h-11 items-center whitespace-nowrap border-b-2 border-transparent px-1 text-sm font-semibold text-muted transition-colors hover:text-primary-dark;
+  }
+
+  .tab-active {
+    @apply border-primary text-primary-dark;
+  }
+
+  .sidebar-link {
+    @apply flex min-h-11 items-center gap-3 rounded px-3 text-sm font-medium text-muted transition-colors hover:bg-primary-light hover:text-primary-dark;
+  }
+
+  .sidebar-link-active {
+    @apply bg-primary-light text-primary-dark;
+  }
+
+  .bar-track {
+    @apply h-2.5 w-full overflow-hidden rounded-sm bg-bg;
+  }
+
+  .bar-fill {
+    @apply h-full rounded-sm bg-primary transition-all;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded bg-border/70;
+  }
+
+  .skip-link {
+    @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded bg-primary px-4 py-3 text-sm font-semibold text-white focus:translate-y-0;
+  }
+
+  .login-pattern {
+    background-color: #153a2f;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(234, 242, 239, 0.11) 0, rgba(234, 242, 239, 0) 34%),
+      radial-gradient(circle at 88% 78%, rgba(181, 101, 29, 0.2) 0, rgba(181, 101, 29, 0) 42%),
+      linear-gradient(135deg, #153a2f 0%, #1f4d3f 55%, #153a2f 100%);
+  }
+
+  .login-grid {
+    background-image:
+      linear-gradient(rgba(234, 242, 239, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(234, 242, 239, 0.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .imprimible,
+  .imprimible * {
+    visibility: visible;
+  }
+
+  .imprimible {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+  }
+}
