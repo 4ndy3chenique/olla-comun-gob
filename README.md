@@ -82,6 +82,9 @@ en cada push a `main`. Requiere:
 El workflow falla de forma explícita si la variable no existe. El origen de producción debe estar
 en `CORS_ORIGIN` de `api-ollas-prod`; el valor esperado se documenta en `TRASPASO.md` §8.10.
 
+> Si cambia la URL de la API, actualiza también `connect-src` en `public/staticwebapp.config.json`:
+> la CSP se sirve como archivo estático y no lee variables de entorno.
+
 ## Documentación relacionada
 
 - `../TRASPASO.md`: arquitectura, contratos, base de datos y despliegue.
